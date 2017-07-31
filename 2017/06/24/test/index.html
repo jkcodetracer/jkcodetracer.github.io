@@ -1,0 +1,911 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Django,Web development," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Codetracer" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="网站完成开发之后，就需要发布并部署，那么具体流程是怎样的呢？整个部署的过程就是将开发栈迁移，并提供运行环境的过程。现在使用Django做的这个博客很简单，使用了python3.4，Django1.10框架，sqlite3数据库，还有一些其他的python包。 那么部署/迁移网站的时候，就要把这些一并打包，放置到可以运行的主机上。 主机有什么要求呢？ 要提供web栈运行的环境，并且还要提供访问的服务">
+<meta name="keywords" content="Django,Web development">
+<meta property="og:type" content="article">
+<meta property="og:title" content="部署Django博客">
+<meta property="og:url" content="http://yoursite.com/2017/06/24/test/index.html">
+<meta property="og:site_name" content="Codetracer">
+<meta property="og:description" content="网站完成开发之后，就需要发布并部署，那么具体流程是怎样的呢？整个部署的过程就是将开发栈迁移，并提供运行环境的过程。现在使用Django做的这个博客很简单，使用了python3.4，Django1.10框架，sqlite3数据库，还有一些其他的python包。 那么部署/迁移网站的时候，就要把这些一并打包，放置到可以运行的主机上。 主机有什么要求呢？ 要提供web栈运行的环境，并且还要提供访问的服务">
+<meta property="og:updated_time" content="2017-06-24T11:48:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="部署Django博客">
+<meta name="twitter:description" content="网站完成开发之后，就需要发布并部署，那么具体流程是怎样的呢？整个部署的过程就是将开发栈迁移，并提供运行环境的过程。现在使用Django做的这个博客很简单，使用了python3.4，Django1.10框架，sqlite3数据库，还有一些其他的python包。 那么部署/迁移网站的时候，就要把这些一并打包，放置到可以运行的主机上。 主机有什么要求呢？ 要提供web栈运行的环境，并且还要提供访问的服务">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/24/test/"/>
+
+
+
+
+
+  <title>部署Django博客 | Codetracer</title>
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?251cdcc3188107d65c58d2d24c5b162c";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Codetracer</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/24/test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Zhengjie Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/uploads/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Codetracer">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">部署Django博客</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-24T21:45:39+10:00">
+                2017-06-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Web-development/" itemprop="url" rel="index">
+                    <span itemprop="name">Web development</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/06/24/test/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="2017/06/24/test/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>网站完成开发之后，就需要发布并部署，那么具体流程是怎样的呢？整个部署的过程就是将开发栈迁移，并提供运行环境的过程。现在使用Django做的这个博客很简单，使用了python3.4，Django1.10框架，sqlite3数据库，还有一些其他的python包。 那么部署/迁移网站的时候，就要把这些一并打包，放置到可以运行的主机上。 主机有什么要求呢？ 要提供web栈运行的环境，并且还要提供访问的服务。下面详细看一下打包流程以及主机的配置方法。</p>
+<h2 id="打包代码的发布版本"><a href="#打包代码的发布版本" class="headerlink" title="打包代码的发布版本"></a>打包代码的发布版本</h2><ol>
+<li>要创建一个发布版本。这里需要关闭调试开关，并且清理数据库。修改下面的文件就可以关闭调试开关。<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># blogproject/setting.py</span></div><div class="line">DEBUG = False</div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>数据库这里并不需要清理， 因为使用Django读写数据的时候， 实际上已经将存储过程和表结构定义在代码里面了。 部署的时候使用migrate命令就可以完成。 这里要保证将代码打包，或者提交到git上的时候，不要保留这些数据库文件。</p>
+<ol>
+<li>保留整个运行环境。 在开发这个网站的时候， 由于使用了virtualenv， 这里只要使用pip导出一份包列表，之后用这份列表就可以一键构造环境。<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 保证是在virtualenv环境中的</span></div><div class="line">$ <span class="built_in">source</span> activate</div><div class="line">$ pip freeze &gt; req.txt</div><div class="line"><span class="comment"># 还原的话，使用 pip install -r req.txt就可以完成</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>现在可以把整个工程以及这份文件提交到git或者打包了。</p>
+<h2 id="配置主机"><a href="#配置主机" class="headerlink" title="配置主机"></a>配置主机</h2><p>配置主机主要有两点要做。首先，构造一个可以通过web访问的主机， 其次，构造一个目标工程可以运行的环境。</p>
+<h3 id="构建web主机"><a href="#构建web主机" class="headerlink" title="构建web主机"></a>构建web主机</h3><p>关于部署主机的选择有很多：</p>
+<ul>
+<li>独立服务器， 一台实体的服务器， 买一台或者租借一台成本都比较高，而且需要对软件和硬件都进行维护。 如果有一个工作站，可以考虑将工程挂在上面。</li>
+<li>VPS(Virtual Private Server)，虚拟专用服务器， 使用虚拟化技术将一个实体的服务器分配给多人共享。 价格比独立服务器便宜，但是性能和可用性也降低了，取决于服务厂商的实力。</li>
+<li>ECS(Elastic Compute Service), 云服务器, 这里进一步进行抽象，将CPU, memory, disk抽象成计算/存储资源， 按照需要分配给用户。 注意， 这个与VPS完全不同，这里是在更小的粒度上分配资源，而不是简单地将独立服务器共享给多个用户。</li>
+<li>Vhost(Virtual hosts)，虚拟主机，一个更偷懒的方法。 供应商提供了服务运行的环境，比如(mysql+php, nginx+nosql)。当前这一步基本就不需要做了， 可以直接将工程代码部署上去， 修改一下配置文件，就可以直接运行了。不过，在这个主机上， 用户实际上只占用了一个目录来安置工程。 虚拟主机可以构建在VPS或者ECS上。</li>
+</ul>
+<p>如果网站规模较小， 虚拟主机就搞定了， 大点的再选VPS， ECS， 甚至独立服务器。<br>这里选择亚马逊的AWS EC2来折腾， 因为免费1年，并且还可以体验较完整的建站实施过程。</p>
+<ul>
+<li>去亚马逊注册，配置一台ECS，选择ubuntu16.04，添加安全规则放通80端口。这些可以参见官方文档或者google</li>
+<li>使用ssh或putty登录到ECS服务器，参见官方向导。</li>
+<li>使用apt-get 安装nginx, gunicorn, git.</li>
+<li>这个博客使用了sqlite， 内置于python中， 不需要安装。</li>
+<li>如果项目需要，还要安装mysql, memcache, redis一类的其他程序<br>到目前为止， 使用主机的ip地址访问80端口就能获取到nginx的欢迎页面了。</li>
+</ul>
+<h3 id="域名绑定"><a href="#域名绑定" class="headerlink" title="域名绑定"></a>域名绑定</h3><p>godaddy， 阿里云， 都可以买域名。购买之后， 将刚才配置的主机上的公网IP设置到域名服务器上即可。 godaddy和阿里云都有这样的配置页面，并且有一些监控和防护服务。 也可以使用DNSPOD来作为域名解析服务器。<br>搞定这一步之后， 就可以通过域名来访问刚才的nginx的欢迎页面了。</p>
+<h2 id="部署工程"><a href="#部署工程" class="headerlink" title="部署工程"></a>部署工程</h2><p>部署工程的主要工作就是配置代码运行环境。 这里有两个重要部分，一个是工程的执行环境配置，另一个就是与web server结合的配置。</p>
+<h3 id="配置执行环境"><a href="#配置执行环境" class="headerlink" title="配置执行环境"></a>配置执行环境</h3><ul>
+<li><p>使用git 将代码拉倒主机上。</p>
+<ul>
+<li>最好将工程放到一个独立目录中， 比如 site/myblog 中， 之后部署其他站点则在 site/下增加新目录就可以了， 便于管理。</li>
+<li>这里推荐使用一个非root用户来执行所有的部署操作，保证网页文件用较低权限就能访问， 一旦网站有漏洞， 攻击者不会立即的到root权限来进行非法操作。<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">useradd -m -s /bin/bash deployer</div><div class="line">usermod -a -G sudo deployer</div><div class="line">passwd deployer</div><div class="line">su - deployer</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>使用之前保留的virtualenv包列表(req.txt)来构建运行环境。</p>
+<ul>
+<li>同样尽量使用独立目录，例如 env/myblogenv,之后可以增加其他环境到env/下<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">virtualenv --distribute -p /usr/<span class="built_in">local</span>/bin/python3.3 env/myblogenv --no-site-packages</div><div class="line"><span class="built_in">source</span> myblogenv/bin/activate</div><div class="line">pip install -r req.txt</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p>构造/迁移数据库。 使用django框架迁移数据库非常方便，不过本质上都是依赖存储过程来搞定的。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">python manage.py makemigrate</div><div class="line">python manage.py migrate</div></pre></td></tr></table></figure>
+</li>
+<li><p>创建站点管理员账户。 通过web页面维护网站后台是非常重要的工具。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python manage.py createsuperuser</div></pre></td></tr></table></figure>
+</li>
+<li><p>收集静态文件。 这里把所有用到的静态文件，css，json全部收集到一个文件夹下面， 便于nginx访问。</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">python manage.py collectstatic</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="配置web环境"><a href="#配置web环境" class="headerlink" title="配置web环境"></a>配置web环境</h3><p>目前为止， 在debug模式下，整个工程已经可以通过local的方式来访问了。接下来将工程与nginx结合。</p>
+<ul>
+<li><p>在/etc/nginx/site-available/ 目录下增加一份配置文件，指向我们的工程</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">  charset utf-8;</div><div class="line">  listen 80; //server port</div><div class="line">  server_name xxxx.com;  //domain name</div><div class="line"></div><div class="line">  // if url begins with &apos;/static&apos;</div><div class="line">  location /static &#123;</div><div class="line">    alias /home/xxxxxxx/site/myblog/static</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  // other url transfer to Gunicorn to process</div><div class="line">  location / &#123;</div><div class="line">    proxy_set_header Host $host;</div><div class="line">    proxy_pass http://unix:/tmp/xxxx.com.socket;  // we&apos;d better use a safe dir, instead of /tmp</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>在nginx/sites-enable/中创建一个软连接到上面那份配置文件。</p>
+</li>
+<li><p>设置自动启动Gunicorn， 在/etc/init/gunicorn-xxx.com.conf, 这里gunicorn 作为WSGI服务器</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">start on net-device-up</div><div class="line">stop on shutdown</div><div class="line"></div><div class="line">respawn</div><div class="line"></div><div class="line">setuid deployer</div><div class="line"><span class="built_in">exec</span> /home/xxxx/env/bin/gunicorn --<span class="built_in">bind</span> unix:/tmp/xxxx.com.socket myblog.wsgi:application</div></pre></td></tr></table></figure>
+</li>
+<li><p>重启nginx和gunicorn服务</p>
+<figure class="highlight sh"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo service nginx reload</div><div class="line">sudo restart gunicorn-xxx.com</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>部署到这里已经完成了， 之后可以将这个过程完全自动化，可以使用Fabric来执行。 目前常见的网络应用都可以按照这个思路来进行发布。 </p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Django/" rel="tag"># Django</a>
+          
+            <a href="/tags/Web-development/" rel="tag"># Web development</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/22/hello-world/" rel="next" title="Hello World">
+                <i class="fa fa-chevron-left"></i> Hello World
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/25/uber-in-tumoil/" rel="prev" title="CoolDown 经济学人阅读(1) - Uber in Turmoil">
+                CoolDown 经济学人阅读(1) - Uber in Turmoil <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/uploads/avatar.png"
+               alt="Zhengjie Wang" />
+          <p class="site-author-name" itemprop="name">Zhengjie Wang</p>
+           
+              <p class="site-description motion-element" itemprop="description">Just for Fun.</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/jkcodetracer" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://twitter.com/" target="_blank" title="Twitter">
+                  
+                    <i class="fa fa-fw fa-twitter"></i>
+                  
+                  Twitter
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.weibo.com/1343924511/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://www.zhihu.com/people/wang-zheng-jie-41" target="_blank" title="知乎">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  知乎
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#打包代码的发布版本"><span class="nav-number">1.</span> <span class="nav-text">打包代码的发布版本</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置主机"><span class="nav-number">2.</span> <span class="nav-text">配置主机</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构建web主机"><span class="nav-number">2.1.</span> <span class="nav-text">构建web主机</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#域名绑定"><span class="nav-number">2.2.</span> <span class="nav-text">域名绑定</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#部署工程"><span class="nav-number">3.</span> <span class="nav-text">部署工程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#配置执行环境"><span class="nav-number">3.1.</span> <span class="nav-text">配置执行环境</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#配置web环境"><span class="nav-number">3.2.</span> <span class="nav-text">配置web环境</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">4.</span> <span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Zhengjie Wang</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://jkcodetracer-github-io.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/2017/06/24/test/';
+          this.page.identifier = '2017/06/24/test/';
+          this.page.title = '部署Django博客';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://jkcodetracer-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script>
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  
+
+
+  
+
+  
+
+</body>
+</html>
