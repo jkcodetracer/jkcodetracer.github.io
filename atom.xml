@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2017-07-31T14:17:40.000Z</updated>
+  <updated>2017-08-05T01:31:47.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -14,6 +14,138 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>CoolDown 经济学人阅读(22) - Code red</title>
+    <link href="http://yoursite.com/2017/08/05/code-red/"/>
+    <id>http://yoursite.com/2017/08/05/code-red/</id>
+    <published>2017-08-05T01:31:03.000Z</published>
+    <updated>2017-08-05T01:31:47.000Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="Code-red"><a href="#Code-red" class="headerlink" title="Code red"></a>Code red</h1><p>文章选自2017/7/29的The Economist。 这里对文章进行生词释义和句子分析，仅供学习使用，欢迎交流。</p>
+<blockquote>
+<p>导读： 拥有海量数据， 众多人才， 政府扶持。 中国无疑是AI发展的乐土。 但是安全与道德的问题，该如何约束</p>
+</blockquote>
+<ul>
+<li>红色代码: 暗指国家扶持的人工智能项目， 同时也存在危险性<blockquote>
+<p>State-controlled corporations are developing powerful artificial intelligence. That is worrying</p>
+</blockquote>
+</li>
+</ul>
+<p>国有企业正在开发强大的人工智能，这令人忧心忡忡</p>
+<ul>
+<li><strong>state-controlled corporations</strong>:国有企业</li>
+</ul>
+<blockquote>
+<p>IMAGINE the perfect environment for developing artificial intelligence (AI). The ingredients would include masses of processing power, lots of computer-science boffins, a torrent of capital—and abundant data with which to train machines to recognise and respond to patterns. That environment might sound like a fair description of America, the current leader in the field. But in some respects it is truer still of China.</p>
+</blockquote>
+<p>想象一下发展人工智能的完美环境。 主要因素包含了海量处理能力， 众多的计算机科研人员， 源源不断的资金–以及用于训练的机器做模式识别的海量数据。</p>
+<ul>
+<li><strong>masses of</strong>: 大量的</li>
+<li><strong>computer-science boffin</strong>: 计算机科学科研工作者</li>
+<li><strong>a torrent of</strong>: 迸发的，接连不断的</li>
+<li><strong>a fair description</strong>: 有道理的说法</li>
+</ul>
+<blockquote>
+<p>The country is rapidly building up its cloud-computing capacity.For sheer volume of research on AI,if not quality, Chinese academics surpass their American peers; AI-related patent submissions in China almost tripled between 2010 and 2014 compared with the previous five years. Chinese startups are attracting billions in venture capital. Above all, China has over 700m smartphone users, more than any other country. They are consuming digital services, using voice assistants, paying for stuff with a wave of their phones—and all the while generating vast quantities of data. That gives local firms such as Alibaba, Baidu and Tencent the opportunity to concoct best- in-class AI systems for everything from facial recognition to messaging bots. The government in Beijing is convinced of the potential. On July 20th it outlined a development strategy designed to make China the world’s leading AI power by 2030.</p>
+</blockquote>
+<p>中国正在迅速建立起云计算能力。 如果不算质量，从急剧增加的AI研究上来看， 中国学者已经超过了他们的美国同行；在中国AI相关的专利提交数量在2010到2014几乎增至之前五年的三倍。中国的创业公司正在吸引数十亿的风险资本。 除此之外， 中国拥有超过7亿智能手机用户， 远超过其他国家。</p>
+<ul>
+<li><strong>cloud-computing</strong>: 云计算</li>
+<li><strong>sheer volume of</strong>: 极其大量的</li>
+<li><strong>patent submissions</strong>: 专利提交</li>
+<li><strong>AI-related</strong>: 人工智能相关的</li>
+<li><strong>venture capital</strong>: 风险资本</li>
+<li><strong>above all</strong>: 更重要的是</li>
+<li><strong>concoct(v.)</strong>: 调制，调配</li>
+<li><strong>best-in-class</strong>: 一流的</li>
+<li><strong>facial recognition</strong>: 面部识别</li>
+<li><strong>messaging bots</strong>: 语音助手</li>
+<li><strong>be convinced of</strong>: 确信…</li>
+</ul>
+<blockquote>
+<p>An AI boom in the world’s most populous place holds out enormous promise. No other country could generate such a volume of data to enable machines to learn patterns indicative of rare diseases, for example. The development of new technologies ought to happen faster, too. Because typing Chinese characters is fiddly, voice-recognition services are more popular than in the West; they should improve faster as a result. Systems to adjust traffic lights automatically in response to footage from roadside cameras are already being tested. According to the McKinsey Global Institute, a research arm of the consultancy, AI-driven automation could boost China’s GDP growth by more than a percentage point annually.</p>
+</blockquote>
+<p>一股人工智能热潮在世界上人口最多的地方带来巨大的前景。 比如， 没有哪个国家能产生如此多的数据让机器去学习描述罕见疾病的模式。 新技术也应该进展飞速。 因为中文输入十分繁琐， 语音识别服务比在西方国家更流行；作为回应，它们应该迅速提升。</p>
+<ul>
+<li><strong>AI boom</strong>: 人工智能热潮</li>
+<li><strong>hold out enormous promise</strong>: 带来巨大的前景</li>
+<li><strong>rare diseases</strong>: 罕见疾病</li>
+<li><strong>adjust traffic lights</strong>: 调节交通灯</li>
+<li><strong>research arm</strong>: 研究分支机构</li>
+</ul>
+<blockquote>
+<p>Yet the country’s AI plans also give cause for concern. One worry is that the benefits of Chinese breakthroughs will be muted by data protectionism. A cyber-security law that came into force in June requires foreign firms to store data they collect on Chinese customers within the country’s borders; outsiders cannot use Chinese data to offer services to third parties. It is not hard to imagine tit-for-tat constraints on Chinese firms. And if data cannot be pooled, the algorithms that run autonomous cars and other products may not be the most efficient.</p>
+</blockquote>
+<p>然而，中国的AI计划也令人忧心。 一个担心就是中国的技术突破带来的好处将被数据保护主义抑制。</p>
+<ul>
+<li><strong>give cause for concern</strong>: 让人担心</li>
+<li><strong>be muted by</strong>: 被削弱</li>
+<li><strong>data protectionism</strong>:数据保护主义</li>
+<li><strong>cyber-security law</strong>:网络安全法</li>
+<li><strong>come into force</strong>: (法律)实施</li>
+<li><strong>tit-for-tat constraint</strong>: 针锋相对的限制</li>
+<li><strong>autonomous car</strong>: 自动驾驶汽车</li>
+</ul>
+<blockquote>
+<p>A second area of unease is ethics and safety. In America, the technology giants of Silicon Valley have pledged to work together to make sure that any AI tools they develop are safe. They will look at techniques like “boxing”, in which AI agents are isolated from their environment so that any wayward behaviour does not have disastrous effects. All the leading AI researchers in the West are signatories to an open letter from 2015 calling for a ban on the creation of autonomous weapons. If it happens at all, the equivalent Chinese discussion about the limits of ethical AI research is far more opaque.</p>
+</blockquote>
+<p>另一个令人不安的问题就是道德和安全。 在美国， 硅谷的科技巨头已经承诺一起合作确保他们开发的AI工具是安全的。</p>
+<ul>
+<li><strong>unease(n.)</strong>: 不安，担心</li>
+<li><strong>wayward behaviour</strong>: 难以控制的行为</li>
+<li><strong>disastrous effect</strong>: 灾难性的影响</li>
+<li><strong>signatory</strong>: 缔约者</li>
+<li><strong>open letter</strong>: 公开信</li>
+<li><strong>opaque(n.)</strong>: 难懂的，不透明的</li>
+</ul>
+<blockquote>
+<p>Chinese AI companies do have incentives to think about some of these issues: rogue AI would be a problem for the planet wherever it emerged. There is a self-interested case for the formulation of global safety standards, for example. But a third concern—that AI will be used principally to the benefit of China’s government—is a less tractable problem.</p>
+</blockquote>
+<p>中国的AI公司有动机去思考一下下列问题： 无论在地球的哪个地方兴起， 流氓AI将会成为一个问题。</p>
+<ul>
+<li><strong>have incentives to do</strong>: 有动机做…</li>
+<li><strong>a self-interested case</strong>: 一个自私的例子</li>
+<li><strong>principally(adv.)</strong>: 主要的</li>
+<li><strong>a tractable problem</strong>: 易处理的的问题</li>
+</ul>
+<blockquote>
+<p>Autocratic intelligence<br>The new plan is open about AI’s value to the state. It envisages the use of the technology in everything from guided missiles to predictive policing. AI techniques are perfect for finding patterns in the massive amounts of data that Chinese censors must handle in order to maintain a grip on the citizenry. It is easy to imagine how the same data could boost the country’s nascent plans to create a “social-credit” system that scores people for their behaviour. Once perfected, these algorithms would interest autocratic regimes around the world. China’s tech firms are in no position to prevent the government in Beijing from taking advantage of such tools. Baidu, for example, has been appointed to lead a national laboratory for deep learning. Chinese AI will reflect the influence of the state.</p>
+</blockquote>
+<p>新计划对AI对国家的价值直言不讳。 设想了应用AI技术到各种事情，从制导导弹到可预测治安维护。</p>
+<ul>
+<li><strong>be open about</strong>: 不隐瞒，直言不讳</li>
+<li><strong>autocratic(adj.)</strong>: 独裁的</li>
+<li><strong>envisage(v.)</strong>: 设想，展望</li>
+<li><strong>predictive policing</strong>: 可预测治安维护</li>
+<li><strong>censor(n.)</strong>: 审查者(负责人口普查，监督公众道德行为)</li>
+<li><strong>a grip on</strong>: 对…的控制</li>
+<li><strong>nascent plan</strong>: 新生的计划</li>
+<li><strong>autocratic regime</strong>: 独裁政权</li>
+</ul>
+<blockquote>
+<p>Western firms and governments are no angels when it comes to data collection and espionage. But Western companies are at least engaged in an open debate about the ethical implications of AI; and intelligence agencies are constrained by democratic institutions. Neither is true of China. AI is a technology with the potential to change the lives of billions. If China ends up having most influence over its future, then the state, not citizens, may be the biggest beneficiary.</p>
+</blockquote>
+<p>当涉及数据收集和间谍活动时，西方政府和企业不会像天使那样纯洁无暇。 但西方企业至少参与到了一场由AI引起的道德问题的辩论当中；并且智能代理是受民主机构约束的。</p>
+<ul>
+<li><strong>espionage(n.)</strong>:间谍活动</li>
+<li><strong>ethical implication</strong>: 道德影响</li>
+<li><strong>beneficiary(n.)</strong>: 受益人</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;Code-red&quot;&gt;&lt;a href=&quot;#Code-red&quot; class=&quot;headerlink&quot; title=&quot;Code red&quot;&gt;&lt;/a&gt;Code red&lt;/h1&gt;&lt;p&gt;文章选自2017/7/29的The Economist。 这里对文章进行生词释义和句子分析，
+    
+    </summary>
+    
+      <category term="English Learning" scheme="http://yoursite.com/categories/English-Learning/"/>
+    
+    
+      <category term="The Economist" scheme="http://yoursite.com/tags/The-Economist/"/>
+    
+  </entry>
   
   <entry>
     <title>CoolDown 经济学人阅读(21) - The new gunboat diplomacy</title>
@@ -2016,142 +2148,6 @@
       &lt;p&gt;文章选自2017/6/17的The Economist。 这里对文章进行生词释义和句子分析，仅供学习使用，欢迎交流。&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;导读: 台独势力在蔡英文上台之后再次强势， 但是在国际上却屡屡碰壁。 参加WHA会议被拒，参加金伯利进程会议被驱逐,
-    
-    </summary>
-    
-      <category term="English Learning" scheme="http://yoursite.com/categories/English-Learning/"/>
-    
-    
-      <category term="The Economist" scheme="http://yoursite.com/tags/The-Economist/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>CoolDown 经济学人阅读(2) - Storm clouds and silver linings</title>
-    <link href="http://yoursite.com/2017/06/27/british-election/"/>
-    <id>http://yoursite.com/2017/06/27/british-election/</id>
-    <published>2017-06-26T15:57:07.000Z</published>
-    <updated>2017-06-26T16:00:04.000Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Storm-clouds-and-silver-linings-–-Britain’s-election"><a href="#Storm-clouds-and-silver-linings-–-Britain’s-election" class="headerlink" title="Storm clouds and silver linings – Britain’s election"></a>Storm clouds and silver linings – Britain’s election</h1><p>文章选自2017/6/17的The Economist。 这里对文章进行生词释义和句子分析，仅供学习使用，欢迎交流和转发。</p>
-<blockquote>
-<p>导读: 自从去年公投脱欧之后，英国的政局一直不稳定。 今年Theresa May 突然宣布提前大选， 意在团结各方势力，增加威信，推进脱欧进程。但结果出乎意料, 保守党反而失去了部分支持率。 本已人心四散的英国，现在更加风雨飘摇(storm claud)。 那一线光明(silver lining)究竟何在？</p>
-</blockquote>
-<ul>
-<li><strong>silver lining</strong>: 一线光明， 一线希望。</li>
-</ul>
-<blockquote>
-<p>How to turn a chaotic result into a better Brexit.</p>
-</blockquote>
-<p>本文分析了英国政治当前混乱的局面，并探讨如何更好地脱欧。 呼应了主题”storm clouds”和”silver linings”。</p>
-<ul>
-<li><strong>Brexit</strong>: 英国退欧。 在英国退欧之后创建的一个新词汇</li>
-<li><strong>a chaotic result</strong>: 一个混乱的局面</li>
-</ul>
-<blockquote>
-<p>THERESA MAY called a snap election two months ago to build a “strong and stable” government. How those words will haunt her. On June 8th voters decided that, rather than transform her small majority into a thumping one, they would remove it altogether. The result is a country in an even deeper mess. Mrs May is gravely wounded but staggering on. If and when she goes, yet another election may follow and its plausible winner would be Jeremy Corbyn, of Labour’s far-left fringe. On the eve of the Brexit referendum’s first anniversary, the chaos it has unleashed rumbles on unabated.</p>
-</blockquote>
-<p>梅姨发起的提前选举(snap election)却暴露出选民们对其信心不足。</p>
-<ul>
-<li><strong>a snap election</strong>: 提前选举。 指比预定时间要早的选举。</li>
-<li><strong>haunt</strong>: 萦绕，缠绕。 这里指Theresa May对其政治口号的坚定立场。</li>
-<li><strong>thumping</strong>: 巨大的。 与huge, enormous, tremendous, massive近意。<br>e.g.<ul>
-<li>1.a thumping success. 一个巨大的成功</li>
-<li>2.a thumping majority. 绝对多数。指获得绝对的支持，选票<ul>
-<li>The prime minister was re-elected only a year ago with a thumping parliamentary majority. 首相一年前刚以议会绝对多数重新当选。</li>
-</ul>
-</li>
-</ul>
-</li>
-<li><strong>an even deeper mess</strong>: 更严重的困境，混乱。mess在这里指充满问题和麻烦</li>
-<li><strong>gravely</strong>: 极其严重地，严峻地。 类似于seriously， 甚至更糟糕。grave 是坟墓的意思</li>
-<li><strong>stagger on</strong>: 勉强维持， 硬撑。</li>
-<li><strong>if and when</strong>: 万一，如果</li>
-<li><strong>plausible</strong>: 看似合理的</li>
-<li><strong>far-left fringe</strong>: 极左派领袖</li>
-<li><strong>on the eve of</strong>: 在…的前夕</li>
-<li><strong>rumble on</strong>: 没完没了地进行</li>
-<li><strong>unabated</strong>:未减弱的， 未减少的<br>e.g. The fighting has continued unabated for over 24 hours. 激战已经持续了24小时以上。</li>
-</ul>
-<blockquote>
-<p>With negotiations due to begin in Brussels in days, the circumstances could hardly be less promising. Yet the electoral upset has thrown up a chance for Britain and the European Union to forge a better deal than the one which looked likely a week ago. Because Mrs May’s drastic “hard Brexit” has been rejected by voters, the question of what replaces it is back in play.</p>
-</blockquote>
-<p>选民并不支持Theresa May的‘硬脱欧’方案。</p>
-<ul>
-<li><strong>due to</strong>:预期的, 预定到达的。 这里的due是形容词，与后面的to begin构成定语来修饰negotiations。 并不是介词词组due to，不能理解为由于。这里指说预计在几天内展开的脱欧协商。<br>e.g. The first price increases are due to come into force in July. 第一批提价预计将在7月开始执行。</li>
-<li><strong>be promising</strong>: 前景看好。</li>
-<li><strong>the electoral upset</strong>: 选举的混乱</li>
-<li><strong>throw up</strong>: 放弃。</li>
-<li><strong>forge a deal</strong>: 制订协议</li>
-<li><strong>drastic</strong>: 激烈的，巨大的<br>e.g. Elderly people are not in a position to make drastic changes at this stage of their life. 上了年纪的人在他们这个人生阶段不会再有什么实质性的改变。</li>
-</ul>
-<blockquote>
-<p>That rejection has at least made clear what Brexit does not mean. Mrs May planned both to end the free movement of people between Britain and the EU and to slash overall net migration by nearly two-thirds. She ruled out membership of the single market and customs union. Worst of all was her dictum that “no deal is better than a bad deal”, which threatened to crash Britain out of the EU if Brussels failed to make a good enough offer. Many factors were to blame for the Tories’ failure, not least an insipid campaign. But big boosts for Labour in Remain-voting areas suggest that Brexit motivated many; we calculate that it was responsible for about half the Tory swing to Labour. Mrs May beseeched voters to endorse her extreme approach. Voters have delivered their verdict and it is damning.</p>
-</blockquote>
-<p>本段分析了选民的意向。</p>
-<ul>
-<li><strong>slash(v.)</strong>: 大幅度削减<br>e.g. 20% has been slashed from the cost. 成本砍掉了20%.</li>
-<li><strong>rule out</strong>: 阻止，取消<br>e.g. rain ruled out play for the day. 白天的比赛因雨取消</li>
-<li><strong>single market</strong>: 单一市场， 统一市场。 尤其指免关税的欧洲市场</li>
-<li><strong>customs union</strong>:关税同盟</li>
-<li><strong>dictum</strong>: 宣言，正式声明。 指代权威人士做的正式的陈述<br>e.g. Disreali’s dictum that the first priority of the government must be the health of the people. 迪斯雷利的声明——政府必须把民众的健康当作第一要务</li>
-<li><strong>an insipid campaign</strong>: 枯燥乏味的, 令人厌烦的竞选</li>
-<li><strong>swing to</strong>: 突然转向…</li>
-<li><strong>beseech (v.)</strong>:恳求，哀求。 带有热切并且焦急的情绪<br>e.g. She beseeched him to cut his drinking and his smoking. 她哀求他戒掉烟酒。</li>
-<li><strong>deliver one’s verdict</strong>:传达某人的意见/结论</li>
-<li><strong>damning (adj.)</strong>: 确凿的<br>e.g. He was most damning in his comments about the army. 他最言之凿凿的地方在于其对军方的评论。</li>
-</ul>
-<blockquote>
-<p>Since the government lacks a majority, deciding what Brexit means will fall to Parliament, as it always should have done. The close election merely underlines the need to find an approach that reflects the close referendum. Moderate Tories, including Philip Hammond, the chancellor, and Ruth Davidson,who led the party to success in Scotland, are speaking up for an exit that keeps Britain open to trade and migration—provoking fury among some hardline Brexiteers. Others are mellowing for fear of losing their seats, following the loss of solid Tory constituencies like Kensington.</p>
-</blockquote>
-<p>对于当前这种没有多数票的情况， 只能寄托于政党联合来解决。</p>
-<ul>
-<li><strong>fall to</strong>: 该由…负责<br>e.g. It fell to him to organize the party. 组织晚会的任务落在了他的肩上</li>
-<li><strong>underline(v.)</strong>: 强调<br>e.g. But the incident underlines how easily things can go wrong. 但这一事件也突出表明出差错是多么容易。</li>
-<li><strong>speak up</strong>: 公开表态，大胆地说。 尤其是为某人辩护或者抗议某事物<br>e.g. I am not suggesting that individuals never speak up about wrongdoing. 我并不是在暗示说，个人永远不要去谴责哪些恶行。</li>
-<li><strong>hardline(adj.)</strong>: (政策或态度)强硬的，不妥协的<br>e.g. The United States has taken a lot of criticism for its hardline stance. 美国因其强硬立场遭到众多非议</li>
-<li><strong>be mellowing for</strong>:因为…而态度变柔和</li>
-<li><strong>Tory constituency</strong>:托利党选区</li>
-</ul>
-<blockquote>
-<p>The Democratic Unionists, a Northern Irish party on which the government will depend in key votes, want to minimise problems at the border with the republic, which may mean staying in the customs union. The business lobby, previously frozen out by Mrs May along with everyone else, is arguing for a softer exit, too. The upheaval empowers civil servants, who privately favour the least-disruptive Brexit possible.</p>
-</blockquote>
-<p>本段介绍了Theresa May所在的保守党的潜在合作政党。</p>
-<ul>
-<li><strong>freeze out</strong>: 排斥，逼走<br>e.g. Cheap imports are freezing out home-produced goods. 便宜的进口货正渐渐排挤掉国产商品</li>
-<li><strong>upheaval(n.)</strong>: 动乱,大变动</li>
-<li><strong>civil servant(n.)</strong>: 公务员</li>
-</ul>
-<blockquote>
-<p>Negotiations will be hamstrung by the government’s precariousness. The talks will last until late 2018, perhaps beyond Mrs May’s sell-by date. So Britain needs to reach a cross-party agreement on the basic principles of Brexit, and then find a way to make the consensus stick, whoever is in power. Several senior Tories, as well as the Liberal Democrats, have proposed a commission to draw up a negotiating mandate, rather as the EU government have for the European Commission. The main obstacle is Labour, which sees no reason to make life easier for the Tories. Yet such a commission may be in its interest. Nailing down the principles of Brexit now would save it from having the argument later in office; Mr Corbyn, who has never shown much interest in the subject, would be free to focus on his revolution at home.</p>
-</blockquote>
-<p>从国家利益的角度来看， 跨政党合作来制定退欧基本原则是更重要的事情。</p>
-<ul>
-<li><strong>be hamstrung by</strong>: 因某事而变得无能为力。 hamstring有后腿腱的意思，如果hamstring用作动词，有挑断脚筋的含义。</li>
-<li><strong>the government’s precariousness</strong>: 政局不稳定</li>
-<li><strong>sell-by date</strong>: 保质期。 这里指Theresa May任期结束</li>
-<li><strong>make the consensus stick</strong>: 达成共识</li>
-<li><strong>draw up</strong>: 起草，制定</li>
-<li><strong>a negotiating mandate</strong>: 协商委托书</li>
-<li><strong>nail down</strong>: 确定， 板上钉钉</li>
-</ul>
-<blockquote>
-<p>The EU can improve the chances of a sensible outcome. It does not want Britain to emerge with a better deal than it had as a member, in case that gives ideas to Eurosceptics in other countries. But the risk of anyone envying Britain in its current lunatic state is slight. The EU should recognise that there remains a grave risk of “no deal”, and do what it can to avert that outcome, which would be catastrophic for Britain and very bad for everyone else. There have been encouraging comments from Emmanuel Macron, France’s president, and Wolfgang Schäuble, Germany’s finance minister, that Britain would be welcome back if Brexit were reversed. But that is still unlikely; the focus should be on limiting Brexit’s damage.</p>
-</blockquote>
-<p>在欧盟的角度来看， 达成一份理智的协议同样重要。</p>
-<ul>
-<li><strong>improve the chances of</strong>: 提升…的机会</li>
-<li><strong>a sensible outcome</strong>: 理智的的结果</li>
-<li><strong>Eurosceptic(n.)</strong>: 反欧盟人士</li>
-<li><strong>lunatic state</strong>: 混乱失控的状态。 形容一种充满困惑与失控的状态。 lunatic做为名词的时候， 是’疯子，蠢人’的意思</li>
-<li><strong>a grave risk</strong>: 严峻的风险</li>
-</ul>
-<p>政治问题真的挺复杂， 为什么民主国家突然变得这么容易分裂起来？</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Storm-clouds-and-silver-linings-–-Britain’s-election&quot;&gt;&lt;a href=&quot;#Storm-clouds-and-silver-linings-–-Britain’s-election&quot; class=&quot;headerl
     
     </summary>
     
